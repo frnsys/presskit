@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ site_title }}</title>
+    <meta property="og:url" content="{{ meta.url }}">
+    <meta property="og:site_name" content="{{ site_title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ meta.url }}/{{ meta.image }}">
+    <meta property="og:description" content="{{ meta.description }}">
+    <meta property="og:title" content="{{ site_title }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ site_title }}">
+    <meta name="twitter:image" content="{{ meta.url }}/{{ meta.image }}">
+    <meta name="twitter:description" content="{{ meta.description }}">
+    <style>{{style}}</style>
+</head>
+<body>
+    <header>
+        <img alt="{{ header.alt|escape }}" src="{{ header.image }}" />
+    </header>
+    <main>
+        <section id="overview">
+            <h1>{{ title }}</h1>
+            <ul class="facts">
+                <li>
+                    <b>Website</b>
+                    <a href="{{ website }}">{{ website }}</a>
+                </li>
+                <li>
+                    <b>Release Date</b>
+                    {{ release_date }}
+                </li>
+                <li>
+                    <b>Platforms</b>
+                    <ul>
+                        {% for platform in platforms %}
+                            <li>
+                                {% if platform.url %}
+                                    <a href="{{ platform.url }}">{{ platform.name }}</a>
+                                {% else %}
+                                    {{ platform.name }}
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li>
+                    <b>Prices</b>
+                    <ul>
+                        {% for price in prices %}
+                            <li>{{ price }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% if languages %}
+                    <li>
+                        <b>Languages</b>
+                        <ul>
+                            {% for lang in languages %}
+                                <li>{{ lang }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endif %}
+            </ul>
+            <div>
+                {% for section, text in about.items() %}
+                    <h3>{{ section }}</h3>
+                    {% if text is string %}
+                        <p>{{ text|safe }}</p>
+                    {% elif text is sequence %}
+                        <ul>
+                            {% for line in text %}
+                                <li>{{ line|safe }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        <section id="videos">
+            <h2>Videos</h2>
+            <div class="gallery">
+                {% for video in videos %}
+                    <figure>
+                        <figcaption>{{ video.title }}</figcaption>
+                        <iframe width="560" height="315" src="{{ video.url }}"
+                             title="YouTube video player"
+                             frameborder="0"
+                             allowfullscreen
+                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                        <pre>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;{{ video.url }}&quot; frameborder=&quot;0&quot; allowfullscreen allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot;&gt;&lt;/iframe&gt;</pre>
+                    </figure>
+                {% endfor %}
+            </div>
+        </section>
+        <section id="images">
+            <h2>Images</h2>
+            <div class="gallery">
+                {% for image in images %}
+                    <figure>
+                        <a href="{{ image.url }}"><img src="{{ image.url }}" /></a>
+                        <figcaption>{{ image.title }}</figcaption>
+                    </figure>
+                {% endfor %}
+            </div>
+        </section>
+        {% if press %}
+            <section id="press">
+                <h2>Press</h2>
+                {% for article in press.articles %}
+                    <div class="article">
+                        {% if article.quote %}
+                            <blockquote>“{{ article.quote }}”</blockquote>
+                        {% endif %}
+                        <em>{{ article.title }}</em> - {{ article.author }}, <a href="{{ article.url }}"><em>{{ article.publication }}</em></a>
+                    </div>
+                {% endfor %}
+                {% if press.awards %}
+                    <h2>Awards</h2>
+                    <div class="awards">
+                        {% for award in press.awards %}
+                            <div class="award">
+                                {% if award.image %}
+                                    <a href="{{ award.url }}">
+                                        <img alt="{{ award.name }} - {{ award.year }}" src="{{ award.image }}" />
+                                    </a>
+                                {% else %}
+                                    <a href="{{ award.url }}">{{ award.name }} ({{ award.year }})</a>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </section>
+        {% endif %}
+        <section id="credits">
+            <h2>Credits</h2>
+            <div class="developers">
+                {% for dev in developers %}
+                    <div class="developer">
+                        <div class="logos">
+                            {% for logo in dev.logos %}
+                                <img src="{{ logo }}" />
+                            {% endfor %}
+                        </div>
+                        <div>
+                            <h4>{{ dev.name }}</h4>
+                            <h5><a href="{{ dev.url }}">{{ dev.url }}</a></h5>
+                            <p>{{ dev.description }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="detailed-credits">
+                {% for section, group in credits.items() %}
+                    <div>
+                        <h4>{{ section }}</h4>
+                        <div>
+                            {% for credit in group %}
+                                <div class="credit">
+                                    {% if credit.url %}
+                                        <a href="{{ credit.url }}">{{ credit.name }}</a>
+                                    {% else %}
+                                        {{ credit.name }}
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+        <section id="legal">
+            <h2>Legal</h2>
+            <p>The content on this page is licensed under a <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 license</a>. The content on this page is freely available for commercial use by media outlets.</p>
+            {% if streaming_ok %}
+                <p>We give permission to stream or upload gameplay videos to platforms such as YouTube and Twitch, but we reserve our right to request that particular streams or videos be taken down.</p>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>

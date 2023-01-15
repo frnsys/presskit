@@ -1,0 +1,133 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 1em;
+  font-family: sans-serif;
+  color: #fff;
+  background: #202020;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+a, a:visited {
+  color: #418bff;
+}
+
+section {
+  margin-bottom: 2em;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+pre {
+  white-space: pre-wrap;
+  max-width: 560px;
+  margin-top: 0;
+  color: #586580;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: 1px solid #464658;
+  padding: 1em;
+  border-radius: 3px;
+  list-style-type: none;
+}
+.facts ul {
+  padding: 0;
+  list-style-type: none;
+}
+.facts > li {
+  margin: 0.5em;
+}
+.facts b {
+  display: block;
+  text-decoration: underline;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+figure {
+  margin: 0 0 2em 0;
+}
+#images figure {
+  max-width: 480px;
+}
+#videos figcaption {
+  margin-bottom: 0.5em;
+}
+figcaption {
+  text-align: center;
+}
+
+.article {
+  margin: 1em 0;
+}
+.article blockquote {
+  margin: 0 0 0.25em 0;
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.awards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.award {
+  margin: 0em 1em 1em 1em;
+}
+.award img {
+  width: 120px;
+}
+
+.developers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.developer {
+  display: flex;
+  margin: 1em;
+  max-width: 480px;
+}
+.developer .logos {
+  margin-right: 1.5em;
+}
+.developer .logos img {
+  width: 100px;
+  max-width: none;
+}
+.developer h4 {
+  margin: 0;
+  font-size: 1.2em;
+}
+.developer h5 {
+  margin-top: 0;
+}
+
+.detailed-credits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.detailed-credits > div {
+  margin: 1em;
+}
+.detailed-credits h4 {
+  margin: 0 0 0.5em 0;
+}
