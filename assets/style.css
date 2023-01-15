@@ -70,6 +70,11 @@ figure {
 #videos figcaption {
   margin-bottom: 0.5em;
 }
+#videos figure a {
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+  display: block;
+}
 figcaption {
   text-align: center;
 }

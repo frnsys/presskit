@@ -86,13 +86,14 @@
             <div class="gallery">
                 {% for video in videos %}
                     <figure>
-                        <figcaption>{{ video.title }}</figcaption>
-                        <iframe width="560" height="315" src="{{ video.url }}"
+                        <figcaption>{{ video.title }}</a></figcaption>
+                        <iframe width="560" height="315" src="{{ video.url|replace('watch?v=', 'embed/') }}"
                              title="YouTube video player"
                              frameborder="0"
                              allowfullscreen
                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                        <pre>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;{{ video.url }}&quot; frameborder=&quot;0&quot; allowfullscreen allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot;&gt;&lt;/iframe&gt;</pre>
+                        <a href="{{ video.url }}">{{ video.url }}</a>
+                        <pre>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;{{ video.url|replace('watch?v=', 'embed/') }}&quot; frameborder=&quot;0&quot; allowfullscreen allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot;&gt;&lt;/iframe&gt;</pre>
                     </figure>
                 {% endfor %}
             </div>

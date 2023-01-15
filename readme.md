@@ -37,7 +37,7 @@ about:
     - have lists of text
 videos:
   - title: video title
-    url: youtube embed url
+    url: youtube url
 images:
   - title: image title
     url: path to imgae
