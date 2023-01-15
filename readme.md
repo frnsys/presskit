@@ -14,6 +14,7 @@ Config description:
 
 ```
 title: game title
+email: contact email
 meta:
   description: description for social media/search engine embeds
   image: path to social media embed image
