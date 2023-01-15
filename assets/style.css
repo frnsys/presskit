@@ -131,3 +131,17 @@ figcaption {
 .detailed-credits h4 {
   margin: 0 0 0.5em 0;
 }
+
+.socials a,
+.socials a:visited {
+  padding: 0 0.25em;
+  border-radius: 0.2em;
+  margin-right: 0.25em;
+  background: #8ea3c4;
+  color: #000;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+.socials a:hover {
+  background: #7aa4e6;
+}

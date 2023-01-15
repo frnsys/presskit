@@ -151,6 +151,11 @@
                             <h4>{{ dev.name }}</h4>
                             <h5><a href="{{ dev.url }}">{{ dev.url }}</a></h5>
                             <p>{{ dev.description }}</p>
+                            <div class="socials">
+                                {% for social in dev.socials %}
+                                    <a href="{{ social.url }}">{{ social.name }}</a>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 {% endfor %}

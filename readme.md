@@ -25,7 +25,7 @@ release_date: when the game was released
 platforms:
   - name: platform name
     url: url to game on platform
-languages:
+languages: (optional)
   - optional listing of languages
 prices:
   - list of prices in different currencies
@@ -41,14 +41,14 @@ videos:
 images:
   - title: image title
     url: path to imgae
-press:
-  articles:
+press: (optional)
+  articles: (optional)
     - title: article title
       url: article url
       publication: article publication
       author: article author
       quote: optional quote
-  awards:
+  awards: (optional)
     - name: award name
       url: url to the award site
       image: optional award image
@@ -57,6 +57,9 @@ developers:
   - name: developer/studio name
     url: developer/studio url
     description: developer/studio description
+    socials:
+      - name: social platform name
+        url: social media url
     logos:
       - path to logos (e.g. for light/dark variants)
 credits:
